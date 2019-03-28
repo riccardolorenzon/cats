@@ -23,9 +23,10 @@ class CatsList extends Component {
     );
   }
 
-  loadMoreData() {
-    axios.get('https://api.thecatapi.com/v1/images/search?limit=10&page=1&order=DESC&mime_types=jpg,png')
+  _loadMoreData = () => {
+    axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page=${this.state.page+1}&order=DESC&mime_types=jpg,png`)
       .then(response => this.setState({ cats: [...this.state.cats, ...response.data]}));
+    this.setState({page: this.state.page + 1});
   }
 
   _renderCat = ({item : cat}) => {
@@ -33,11 +34,13 @@ class CatsList extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <FlatList
         data={this.state.cats}
         renderItem={this._renderCat}
+        keyExtractor={item => item.id}
+        onEndReached={this._loadMoreData}
+        onEndReachedThreshold={0}
         >
       </FlatList>
     );
