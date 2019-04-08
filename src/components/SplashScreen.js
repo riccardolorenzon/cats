@@ -3,8 +3,10 @@ import Header from './Header';
 import Button from './Button';
 import Spinner from './Spinner';
 import LoginForm from './LoginForm';
+import Card from './Card';
+import CardSection from './CardSection';
 import { View } from 'react-native';
-
+import CatsList from './CatsList';
 import firebase from 'firebase';
 
 class SplashScreen extends Component {
@@ -33,9 +35,16 @@ class SplashScreen extends Component {
     switch (this.state.loggedIn) {
       case true:
         return (
-          <Button onPress={() => firebase.auth().signOut()}>
-            Log Out
-          </Button>
+          <View>
+            <Card>
+              <CardSection>
+                <Button onPress={() => firebase.auth().signOut()}>
+                  Log Out
+                </Button>
+              </CardSection>
+              <CatsList />
+            </Card>
+          </View>
         );
       case false:
         return <LoginForm />;

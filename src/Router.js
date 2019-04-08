@@ -9,7 +9,7 @@ const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
       <Stack key="root">
-        <Scene key="splash_screen" component={SplashScreen} title="Splash">
+        <Scene key="splash_screen" component={SplashScreen} title="Home">
         </Scene>
       </Stack>
     </Router>
