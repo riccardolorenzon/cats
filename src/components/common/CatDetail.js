@@ -13,10 +13,7 @@ const CatDetail = ({ cat }) => {
   } = styles;
 
   return (
-    <TouchableOpacity onPress={()=> {
-      console.log('does not work');
-      }
-    }>
+    <View>
       <Card>
         <CardSection>
             <View style={headerContentStyle}>
@@ -30,7 +27,7 @@ const CatDetail = ({ cat }) => {
           />
         </CardSection>
       </Card>
-    </TouchableOpacity>
+    </View>
   );
 };
 
