@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Button from './Button';
-import Spinner from './Spinner';
 import LoginForm from './LoginForm';
-import Card from './Card';
-import CardSection from './CardSection';
 import { View } from 'react-native';
-import CatsList from './CatsList';
+
+import { Button, Card, CardSection, Header, Spinner, CatsList} from './common';
 import firebase from 'firebase';
 
 class SplashScreen extends Component {
